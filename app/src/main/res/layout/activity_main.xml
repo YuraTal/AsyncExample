@@ -10,11 +10,24 @@
         android:id="@+id/asynctask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_for_buttons"
+        android:layout_marginTop="44dp"
         android:onClick="buttomClick"
         android:text="@string/go_to_asynctask_example"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_for_buttons"
+        android:onClick="buttomClick"
+        android:text="@string/go_to_thread_example"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asynctask" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
