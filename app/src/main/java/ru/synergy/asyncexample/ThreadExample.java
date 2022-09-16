@@ -10,7 +10,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class ThreadExample extends AppCompatActivity {
+
+    ExecutorService service = Executors.newFixedThreadPool(3);
 
     int mCounter;
 
@@ -28,7 +36,7 @@ public class ThreadExample extends AppCompatActivity {
         setContentView(R.layout.activity_thead_example);
 
     }
-    public void onClick(View v){
+    public void onClick(View v) throws ExecutionException, InterruptedException {
 
         Runnable runnable = new Runnable() {
             @Override
@@ -54,8 +62,13 @@ public class ThreadExample extends AppCompatActivity {
             }
         };
 
-      Thread thread = new Thread(runnable);
-      thread.start();
+//      Thread thread = new Thread(runnable);
+//      thread.start();
+
+        // когда исполнится тогда и выстрелит
+       // service.execute(runnable);
+       Future future = service.submit(runnable);
+       //future.get();
 
 
     }
